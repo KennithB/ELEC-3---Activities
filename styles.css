@@ -1,0 +1,239 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Background Image layout of the Web */
+body {
+    background-image: url('htmlBackground.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: transparent; 
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+/* Navvar layout */
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    max-width: 800px;       /* Set the maximum width to 800px */
+    background: #021039; 
+    margin: 0 auto;         /* Center the navbar on the page */
+    padding: 0 20px;        /* Adjust padding for better centering */
+    border-radius: 15px; 
+}
+
+/* Navbar Logo */
+#navbar__logo {
+    background-color: #12b0e9;
+    background-image: linear-gradient(to top, #13abb5e6 0%, #11139c 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+/* Navbar Menu */
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar__item {
+    height: 80px;
+    position: relative; /* To position dropdown correctly */
+}
+
+.navbar__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    text-decoration: none;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.navbar__links:hover {
+    color: #53cf87;
+    transition: all 0.3s ease;
+}
+
+/* Dropdown Menu Styles */
+.dropdown__menu {
+    display: block;                /* Use block for better control */
+    opacity: 0;                    /* Make it invisible initially */
+    transform: translateY(-10px);  /* Slightly move it up */
+    position: absolute;
+    top: 100%;                     /* Position directly below the parent */
+    left: 0;
+    background-color: #0f1354b5; /* Dropdown background */
+    min-width: 200px;              /* Minimum width of the dropdown */
+    box-shadow: 0 8px 16px rgba(2, 62, 75, 0.824); /* Shadow for dropdown */
+    z-index: 1;                    /* Stack on top */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    pointer-events: none; /
+}
+
+.dropdown__link {
+    color: #fff;                           /* Dropdown link text color */
+    padding: 12px 16px;                      /* Padding for dropdown links */
+    display: block;                          /* Make links block-level */
+    text-decoration: none;                   /* Remove underline from links */
+    transition: background-color 0.3s ease;  /* Transition on hover */
+}
+
+.dropdown__link:hover {
+    background-color: #0fa8ca5e;           /* Hover color for dropdown links */
+}
+
+/* Show dropdown on hover for desktop */
+.navbar__item.dropdown:hover .dropdown__menu {
+    opacity: 1;               /* Show the menu */
+    transform: translateY(0); /* Bring it down to its original position */
+    pointer-events: auto;     /* Allow clicking */
+}
+
+/* Mobile view adjustments */
+@media screen and (max-width: 960px) {
+    .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        width: 100%;
+        max-width: 800px;        /* Keep the max-width for mobile */
+        padding: 0 20px;         /* Adjust padding for mobile */
+        background: #021039;   /* Ensure background is consistent */
+        border-radius: 15px;     /* Smooth curved edges for mobile */
+    }
+
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: -1;
+    }
+    
+    /* Navabr Menu Layout */
+    .navbar__menu.active {
+        background: #021039; 
+        top: 80px; */
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 60vh;
+        font-size: 1.6rem;
+    }
+
+    .dropdown__menu {
+        display: none;      /* Hide dropdown menu by default on mobile */
+        position: relative; /* Relative positioning for mobile */
+        box-shadow: none;   /* Remove shadow in mobile */
+        width: 100%;        /* Full width in mobile */
+    }
+
+    .navbar__item.dropdown .dropdown__menu.active {
+        display: block;     /* Show dropdown when active */
+    }
+
+    #navbar__logo {
+        padding-left: 25px;
+    }
+
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }
+
+    .navbar__item {
+        width: 100%;
+    }
+
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .navbar__btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    .navbar__toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
